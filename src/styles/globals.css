@@ -1,19 +1,20 @@
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
+} */
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-  }
-}
+  } */
+/* } */
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  height: 100%;
 }
 
 body {
@@ -34,9 +35,418 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+} */
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.list li {
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: #aaa;
+  cursor: pointer;
+}
+
+.price-row {
+  display: flex;
+  gap: 8px;
+}
+
+.price-row input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #3a8f5c;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.rating {
+  font-size: 14px;
+}
+
+.rating span {
+  color: #999;
+}
+
+.banner {
+  background: #2f7d4f;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.banner-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.banner-text {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.banner-btn {
+  width: 100%;
+  background: #ffc525;
+  color: #171717;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* / */
+/* ===== SORT BAR ===== */
+
+.sort-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sort-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  font-size: 14px;
+  color: #888;
+  margin-right: 6px;
+}
+
+.chip {
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+.chip:hover {
+  border-color: #2f7d4f;
+  color: #2f7d4f;
+}
+
+.chip.active {
+  background: #2f7d4f;
+  color: #fff;
+  border-color: #2f7d4f;
+}
+
+/* ===== PRICE DROPDOWN ===== */
+
+.price-filter {
+  position: relative;
+}
+
+.price-dropdown {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 200px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.price-dropdown .row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.price-dropdown input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.apply-btn {
+  width: 100%;
+  background: #2f7d4f;
+  color: #fff;
+  border: none;
+  padding: 7px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ===== PRODUCTS GRID ===== */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* ===== CARD ===== */
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+  transition: 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+/* Favorite */
+
+.fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Rating */
+
+.rating {
+  font-size: 13px;
+  color: #f4b400;
+  margin-bottom: 12px;
+}
+
+.rating span {
+  color: #999;
+  margin-left: 4px;
+}
+
+/* Footer */
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-label {
+  font-size: 12px;
+  color: #999;
+  display: block;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.cart-btn {
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cart-btn:hover {
+  background: #2f7d4f;
+  color: #fff;
+  border-color: #2f7d4f;
+}
+/* ===== Product Card ===== */
+.plant-card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.plant-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* Image */
+
+.plant-card .image {
+  width: 100%;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fafafa;
+}
+
+/* Favorite */
+
+.plant-card .fav {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Content */
+
+.plant-card .content {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plant-card .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Rating */
+
+.plant-card .rating {
+  font-size: 13px;
+  color: #f4b400;
+}
+
+.plant-card .rating span {
+  color: #999;
+  margin-left: 6px;
+}
+
+/* Footer */
+
+.plant-card .footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plant-card .price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.plant-card .label {
+  font-size: 12px;
+  color: #999;
+}
+
+.plant-card .price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.plant-card .cart-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  background: #f7f7f7;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.plant-card .cart-btn:hover {
+  background: #2f7d4f;
+  border-color: #2f7d4f;
+  color: #fff;
+}
+
+/* ✅ Responsive */
+
+@media (max-width: 768px) {
+  .plant-card .image {
+    height: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .plant-card .image {
+    height: 150px;
+  }
+
+  .plant-card .cart-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+.card.active {
+  outline: 2px solid #2f8f46;
 }

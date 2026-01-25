@@ -1,0 +1,100 @@
+/* styles/shop.css */
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 26px;
+}
+
+.section-title {
+  font-size: 12px;
+  color: #9a9a9a;
+  margin-bottom: 10px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.muted {
+  color: #bdbdbd;
+  cursor: pointer;
+}
+
+.price-row {
+  display: flex;
+  gap: 8px;
+}
+
+.price-row input {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #2f7d4f;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.rating {
+  font-size: 14px;
+  color: #444;
+}
+
+.rating span {
+  color: #9a9a9a;
+  margin-left: 4px;
+}
+
+.banner {
+  background: linear-gradient(180deg, #2f7d4f, #24643f);
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.banner-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.banner-text {
+  font-size: 12px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.banner-btn {
+  width: 100%;
+  background: #ffc525;
+  color: #000000;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}

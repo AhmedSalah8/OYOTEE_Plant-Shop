@@ -1,0 +1,203 @@
+{
+  "categories": [
+    { "id": "cat_1", "name": "Gardening", "slug": "gardening", "icon": "🌱" },
+    { "id": "cat_2", "name": "Plants", "slug": "plants", "icon": "🪴" },
+    { "id": "cat_3", "name": "Seeds", "slug": "seeds", "icon": "✉️" },
+    { "id": "cat_4", "name": "Bulbs", "slug": "bulbs", "icon": "🧅" },
+    { "id": "cat_5", "name": "Planters", "slug": "planters", "icon": "🏺" }
+  ],
+  "plants": [
+    {
+      "id": 101,
+      "category_id": "cat_2",
+      "category_name": "Plants",
+      "name": "Monstera Deliciosa Variegata (Large)",
+      "price": 325,
+      "rating": 4.8,
+      "reviews": 137,
+      "image": "/monstera-variegated.jpg",
+      "specs": {
+        "height": "120 cm",
+        "animal_safe": false,
+        "difficulty": "Medium"
+      },
+      "description": "Stunning variegated Monstera with large, fenestrated leaves. A true statement piece for any bright room. Needs bright indirect light."
+    },
+    {
+      "id": 102,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Fresh Peppermint",
+      "price": 15,
+      "rating": 4.9,
+      "reviews": 250,
+      "image": "/peppermint.jpg",
+      "specs": {
+        "height": "30 cm",
+        "animal_safe": true,
+        "difficulty": "Very Easy"
+      },
+      "description": "Fast-growing and highly aromatic peppermint. Perfect for teas, cocktails, or adding fresh flavor to dishes. Thrives outdoors."
+    },
+    {
+      "id": 103,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Sweet Italian Basil",
+      "price": 12,
+      "rating": 4.7,
+      "reviews": 180,
+      "image": "/basil.jpeg",
+      "specs": {
+        "height": "40 cm",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "Essential culinary herb with lush green leaves and a strong, sweet aroma. Best grown in sunny kitchen windows or gardens."
+    },
+    {
+      "id": 104,
+      "category_id": "cat_3",
+      "category_name": "Seeds",
+      "name": "Premium Lavender Seeds Packet",
+      "price": 8,
+      "rating": 4.5,
+      "reviews": 45,
+      "image": "/lavender-seeds.jpg",
+      "specs": {
+        "height": "N/A",
+        "animal_safe": true,
+        "difficulty": "Moderate"
+      },
+      "description": "High-germination lavender seeds. Grow your own fragrant oasis. Requires patience and well-draining soil."
+    },
+    {
+      "id": 105,
+      "category_id": "cat_2",
+      "category_name": "Plants",
+      "name": "Fiddle Leaf Fig (Medium)",
+      "price": 85,
+      "rating": 4.6,
+      "reviews": 92,
+      "image": "/fiddle-leaf.jpg",
+      "specs": {
+        "height": "90 cm",
+        "animal_safe": false,
+        "difficulty": "Hard"
+      },
+      "description": "Popular indoor tree known for its large, violin-shaped leaves. It can be finicky and requires stable conditions and bright filtered light."
+    },
+    {
+      "id": 106,
+      "category_id": "cat_2",
+      "category_name": "Plants",
+      "name": "Snake Plant (Sansevieria)",
+      "price": 45,
+      "rating": 5.0,
+      "reviews": 310,
+      "image": "/snake-plant.jpeg",
+      "specs": {
+        "height": "60 cm",
+        "animal_safe": false,
+        "difficulty": "Very Easy"
+      },
+      "description": "The ultimate beginner plant. Indestructible and an excellent air purifier. Tolerates low light and infrequent watering."
+    },
+    {
+      "id": 107,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Organic Rosemary Bush",
+      "price": 20,
+      "rating": 4.8,
+      "reviews": 115,
+      "image": "/rosemary.jpeg",
+      "specs": {
+        "height": "45 cm",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "Woody, perennial herb with needle-like leaves and an intense fragrance. Great for cooking and drought-tolerant once established."
+    },
+    {
+      "id": 108,
+      "category_id": "cat_5",
+      "category_name": "Planters",
+      "name": "Minimalist Ceramic Pot (White)",
+      "price": 35,
+      "rating": 4.9,
+      "reviews": 60,
+      "image": "/white-pot.png",
+      "specs": {
+        "height": "20 cm",
+        "animal_safe": true,
+        "difficulty": "N/A"
+      },
+      "description": "Sleek matte white ceramic planter with a drainage hole and saucer. Fits most medium-sized indoor plants."
+    },
+    {
+      "id": 109,
+      "category_id": "cat_4",
+      "category_name": "Bulbs",
+      "name": "Mixed Tulip Bulbs (Pack of 10)",
+      "price": 18,
+      "rating": 4.4,
+      "reviews": 35,
+      "image": "/tulip-bulbs.jpg",
+      "specs": {
+        "height": "N/A",
+        "animal_safe": false,
+        "difficulty": "Easy"
+      },
+      "description": "A vibrant mix of tulip bulbs ready for autumn planting. Expect a colorful display in early spring."
+    },
+    {
+      "id": 110,
+      "category_id": "cat_2",
+      "category_name": "Plants",
+      "name": "ZZ Plant",
+      "price": 55,
+      "rating": 4.9,
+      "reviews": 205,
+      "image": "/zz-plant.jpg",
+      "specs": {
+        "height": "50 cm",
+        "animal_safe": false,
+        "difficulty": "Very Easy"
+      },
+      "description": "Featuring glossy, dark green leaves. The ZZ plant is incredibly tough, tolerating low light and neglect better than almost any other plant."
+    },
+    {
+      "id": 111,
+      "category_id": "cat_3",
+      "category_name": "Seeds",
+      "name": "Cherry Tomato Seeds",
+      "price": 6,
+      "rating": 4.7,
+      "reviews": 88,
+      "image": "/tomato-seeds.jpg",
+      "specs": {
+        "height": "N/A",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "Grow sweet, bite-sized cherry tomatoes at home. Highly productive and suitable for containers on sunny patios."
+    },
+    {
+      "id": 112,
+      "category_id": "cat_5",
+      "category_name": "Planters",
+      "name": "Terracotta Pot (Classic)",
+      "price": 10,
+      "rating": 4.5,
+      "reviews": 150,
+      "image": "/terracotta-pot.jpeg",
+      "specs": {
+        "height": "25 cm",
+        "animal_safe": true,
+        "difficulty": "N/A"
+      },
+      "description": "Traditional porous clay pot that allows roots to breathe. Ideal for plants that prefer drier soil, like succulents and cacti."
+    }
+  ]
+}
