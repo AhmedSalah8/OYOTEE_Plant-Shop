@@ -9,6 +9,7 @@ import ProductDetails from "@/components/Products/ProductDetails";
 import plantsData from "@/data/plants.json";
 import Pagination from "@/components/Products/Pagination";
 import ShopTopBar from "./Products/ShopTopBar";
+import ShopSkeleton from "./ShopSkeleton";
 
 const Wrapper = styled.div`
   height: calc(100vh - 70px);
@@ -82,6 +83,7 @@ const Content = styled.div`
 `;
 
 export default function ShopPage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -124,8 +126,11 @@ export default function ShopPage() {
         }));
         setProducts(formatted);
         setCurrentPage(1);
+        console.log("Plants loaded:", formatted);
       } catch (error) {
         console.error("Error loading plants:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchPlants();
@@ -166,7 +171,9 @@ export default function ShopPage() {
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
-
+  if (isLoading) {
+    return <ShopSkeleton />;
+  }
   return (
     <Wrapper>
       <div className="left-column">
