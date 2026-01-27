@@ -64,8 +64,15 @@ const SectionWrapper = styled.section`
 
   @media (max-width: 768px) {
     .products-grid {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 12px;
+    }
+    .chip {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+    .label {
+      font-size: 12px;
     }
   }
 `;

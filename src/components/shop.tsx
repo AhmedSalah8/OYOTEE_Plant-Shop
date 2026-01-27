@@ -44,16 +44,13 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
-    grid-template-areas: "middle";
-    .left-column,
-    .right-column {
-      display: block;
-      width: 0;
-      overflow: visible;
-    }
+    grid-template-columns: minmax(150px, 200px) 1fr minmax(150px, 250px);
+    grid-template-areas: "left middle right";
   }
-
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(100px, 150px) 1fr;
+    grid-template-areas: "left middle";
+  }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-areas: "middle";
@@ -68,8 +65,8 @@ const Content = styled.div`
 
   .top-bar {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column-reverse;
   }
 
   .no-results {
@@ -131,6 +128,7 @@ const FilterButton = styled.button`
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    margin-bottom: 10px;
   }
 `;
 

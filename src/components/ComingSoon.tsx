@@ -58,7 +58,7 @@ export default function ComingSoon({ pageName }: { pageName: string }) {
           <strong>{pageName}</strong> page to life. Stay tuned for something
           fresh and green!
         </Description>
-        <BackButton href="/shop">Back to Shop</BackButton>
+        <BackButton href="/">Back to Shop</BackButton>
       </ContentBox>
     </Container>
   );

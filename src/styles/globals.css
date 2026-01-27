@@ -19,7 +19,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -230,13 +230,8 @@ a {
   position: relative;
   background: #fff;
   border-radius: 18px;
-  padding: 16px;
-  border: 1px solid #f0f0f0;
-  transition: 0.2s;
-}
 
-.card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
 }
 
 .card img {

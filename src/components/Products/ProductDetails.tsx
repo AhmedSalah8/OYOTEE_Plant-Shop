@@ -31,7 +31,7 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
   /* تنسيق الـ Handle */
   .mobile-handle {
     display: none;
-    @media (max-width: 1100px) {
+    @media (max-width: 900px) {
       display: block;
       width: 45px;
       height: 5px;
@@ -80,6 +80,7 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
     margin: 10px 0;
     font-size: 16px;
     .reviews {
+      margin-left: 8px;
       color: #999;
       font-size: 14px;
     }
@@ -127,11 +128,14 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
     }
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 900px) {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 85%;
     height: auto;
     max-height: 85vh;
     border-radius: 24px 24px 0 0;
@@ -144,6 +148,13 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     padding-bottom: 40px;
+    .image-container img {
+      border-radius: 10% !important;
+      width: 90% !important;
+      height: auto !important;
+      object-fit: contain;
+      margin: 0 auto;
+    }
   }
 `;
 

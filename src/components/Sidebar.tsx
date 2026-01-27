@@ -103,6 +103,7 @@ const Wrapper = styled.div<{ $isOpen: boolean }>`
       padding: 20px;
       border-radius: 12px;
       text-align: center;
+
       .banner-title {
         font-weight: 800;
         color: #2f7d4f;
@@ -140,7 +141,14 @@ const Wrapper = styled.div<{ $isOpen: boolean }>`
         z-index: 10;
       }
     }
-
+    @media (max-width: 900px) {
+      .padding {
+        padding: 0 10px;
+      }
+      .promo-banner {
+        padding: 5px;
+      }
+    }
     @media (max-width: 768px) {
       position: fixed;
       top: 0;

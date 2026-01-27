@@ -198,6 +198,119 @@
         "difficulty": "N/A"
       },
       "description": "Traditional porous clay pot that allows roots to breathe. Ideal for plants that prefer drier soil, like succulents and cacti."
+    },
+    {
+      "id": 113,
+      "category_id": "cat_1",
+      "category_name": "Seeds",
+      "name": "Egyptian Arugula (Jarjeer) Seeds",
+      "price": 5,
+      "rating": 4.9,
+      "reviews": 420,
+      "image": "/arugula.jpg",
+      "specs": {
+        "height": "20 cm",
+        "animal_safe": true,
+        "difficulty": "Very Easy"
+      },
+      "description": "Traditional Egyptian arugula with a bold, peppery flavor. A fast-growing leafy green that is essential for Middle Eastern salads."
+    },
+    {
+      "id": 114,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Red Radish (Fajl)",
+      "price": 7,
+      "rating": 4.6,
+      "reviews": 110,
+      "image": "/radish.jpg",
+      "specs": {
+        "height": "15 cm",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "Crunchy and sharp red radishes. These are easy to grow underground and provide a fresh, spicy kick to your dishes."
+    },
+    {
+      "id": 115,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Romaine Lettuce (Khass)",
+      "price": 10,
+      "rating": 4.8,
+      "reviews": 195,
+      "image": "/lettuce.jpg",
+      "specs": {
+        "height": "30 cm",
+        "animal_safe": true,
+        "difficulty": "Medium"
+      },
+      "description": "Crispy and refreshing local lettuce variety. Known for its long, sturdy leaves and high water content, perfect for healthy wraps."
+    },
+    {
+      "id": 116,
+      "category_id": "cat_3",
+      "category_name": "Seeds",
+      "name": "Premium Molokhia Seeds",
+      "price": 12,
+      "rating": 5.0,
+      "reviews": 500,
+      "image": "/molokhia-seeds.jpg",
+      "specs": {
+        "height": "N/A",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "High-quality jute mallow seeds. Grow your own fresh Molokhia leaves and enjoy one of the most beloved dishes in the region."
+    },
+    {
+      "id": 117,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Egyptian Parsley (Ba'dounis)",
+      "price": 4,
+      "rating": 4.7,
+      "reviews": 150,
+      "image": "/parsley.jpg",
+      "specs": {
+        "height": "25 cm",
+        "animal_safe": true,
+        "difficulty": "Easy"
+      },
+      "description": "Fresh and vibrant Egyptian flat-leaf parsley. A staple herb in Middle Eastern kitchens, perfect for Tabbouleh and garnishing grilled meats."
+    },
+    {
+      "id": 119,
+      "category_id": "cat_1",
+      "category_name": "Gardening",
+      "name": "Green Onions (Basal Akhdar)",
+      "price": 6,
+      "rating": 4.8,
+      "reviews": 210,
+      "image": "/green-onions.jpg",
+      "specs": {
+        "height": "40 cm",
+        "animal_safe": false,
+        "difficulty": "Very Easy"
+      },
+      "description": "Crunchy green onions with a mild, sweet bite. Essential for authentic oriental breakfasts and adding a fresh crunch to salads."
+    },
+
+    {
+      "id": 121,
+      "category_id": "cat_2",
+      "category_name": "Plants",
+      "name": "Jasmine Sambac (Full)",
+      "price": 45,
+      "rating": 4.9,
+      "reviews": 320,
+      "image": "/jasmine-full.jpg",
+      "specs": {
+        "height": "60 cm",
+        "animal_safe": true,
+        "difficulty": "Medium"
+      },
+      "description": "The iconic Arabian Jasmine. Famous for its intensely sweet fragrance and beautiful white blooms that open at night."
     }
   ]
 }

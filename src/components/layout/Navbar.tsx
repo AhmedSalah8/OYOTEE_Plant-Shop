@@ -30,12 +30,6 @@ const Nav = styled.nav`
     font-weight: 700;
     color: #2f7d4f;
     text-decoration: none;
-
-    .logo-text {
-      @media (max-width: 600px) {
-        display: none;
-      }
-    }
   }
 `;
 
@@ -44,7 +38,13 @@ const Left = styled.div`
   align-items: center;
   gap: 20px;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
+  @media (max-width: 1000px) {
+    width: 60%;
+  }
+  @media (max-width: 900px) {
+    justify-content: left;
+  }
 `;
 
 const Links = styled.ul<{ $isMenuOpen: boolean }>`
@@ -68,6 +68,9 @@ const Links = styled.ul<{ $isMenuOpen: boolean }>`
     transform: ${({ $isMenuOpen }) =>
       $isMenuOpen ? "translateY(0)" : "translateY(-150%)"};
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    a.active::after {
+      display: none;
+    }
   }
 
   a {
@@ -168,13 +171,13 @@ export default function Navbar() {
         </MenuBtn>
 
         <Link href="/" className="logo-container">
-          <Image src="/logo.svg" alt="Logo" width={50} height={40} />
+          <Image src="/logo.svg" alt="Logo" width={40} height={40} />
           <span className="logo-text">OYOTEE</span>
         </Link>
 
         <Links $isMenuOpen={isMenuOpen}>
           <li>
-            <Link href="/shop" className={pathname === "/shop" ? "active" : ""}>
+            <Link href="/" className={pathname === "/" ? "active" : ""}>
               Shop
             </Link>
           </li>
