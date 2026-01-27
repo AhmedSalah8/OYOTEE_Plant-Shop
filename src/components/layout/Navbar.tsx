@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import CartDropdown from "../CartDropdown";
+
+const shimmer = keyframes`
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+`;
+const SkeletonBase = styled.div`
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  animation: ${shimmer} 1.2s linear infinite forwards;
+  border-radius: 4px;
+`;
 
 const Nav = styled.nav`
   position: fixed;
@@ -19,17 +38,8 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   @media (max-width: 768px) {
     padding: 0 16px;
-  }
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    color: #2f7d4f;
-    text-decoration: none;
   }
 `;
 
@@ -37,13 +47,20 @@ const Left = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  justify-content: space-between;
   width: 50%;
   @media (max-width: 1000px) {
     width: 60%;
   }
   @media (max-width: 900px) {
-    justify-content: left;
+    justify-content: flex-start;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #2f7d4f;
   }
 `;
 
@@ -64,13 +81,10 @@ const Links = styled.ul<{ $isMenuOpen: boolean }>`
     padding: 20px;
     gap: 20px;
     border-bottom: 1px solid #eee;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     transform: ${({ $isMenuOpen }) =>
       $isMenuOpen ? "translateY(0)" : "translateY(-150%)"};
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-    a.active::after {
-      display: none;
-    }
   }
 
   a {
@@ -78,6 +92,7 @@ const Links = styled.ul<{ $isMenuOpen: boolean }>`
     position: relative;
     color: #b3b3b3;
     transition: 0.2s;
+    font-weight: 500;
     &:hover,
     &.active {
       color: #222;
@@ -92,6 +107,9 @@ const Links = styled.ul<{ $isMenuOpen: boolean }>`
       height: 3px;
       background-color: #5bd78e;
       border-radius: 2px;
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
   }
 `;
@@ -101,10 +119,6 @@ const Right = styled.div`
   align-items: center;
   gap: 20px;
 
-  .cart-container {
-    position: relative;
-  }
-
   .icon-btn {
     background: none;
     border: none;
@@ -112,8 +126,10 @@ const Right = styled.div`
     cursor: pointer;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .badge {
@@ -123,8 +139,13 @@ const Right = styled.div`
     background: #2f7d4f;
     color: white;
     border-radius: 50%;
-    padding: 2px 6px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 10px;
+    font-weight: bold;
   }
 
   .profile-avatar {
@@ -133,9 +154,10 @@ const Right = styled.div`
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid #add8e6;
-    img {
-      object-fit: cover;
-    }
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -153,11 +175,17 @@ const MenuBtn = styled.button`
 export default function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { cartItems } = useCart();
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const pathname = usePathname();
 
-  // سر اللعبة هنا: دالة الـ Toggle مع الـ stopPropagation
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleCartToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsCartOpen((prev) => !prev);
@@ -171,57 +199,91 @@ export default function Navbar() {
         </MenuBtn>
 
         <Link href="/" className="logo-container">
-          <Image src="/logo.svg" alt="Logo" width={40} height={40} />
-          <span className="logo-text">OYOTEE</span>
+          {isLoading ? (
+            <>
+              <SkeletonBase
+                style={{ width: "40px", height: "40px", borderRadius: "8px" }}
+              />
+              <SkeletonBase style={{ width: "80px", height: "20px" }} />
+            </>
+          ) : (
+            <>
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                width={40}
+                height={40}
+                priority
+              />
+              <span style={{ fontWeight: 800, fontSize: "1.2rem" }}>
+                OYOTEE
+              </span>
+            </>
+          )}
         </Link>
 
-        <Links $isMenuOpen={isMenuOpen}>
-          <li>
-            <Link href="/" className={pathname === "/" ? "active" : ""}>
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link href="/care" className={pathname === "/care" ? "active" : ""}>
-              Plant Care
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/workshops"
-              className={pathname === "/workshops" ? "active" : ""}
-            >
-              Workshops
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/blogs"
-              className={pathname === "/blogs" ? "active" : ""}
-            >
-              Blogs
-            </Link>
-          </li>
-        </Links>
+        {isLoading ? (
+          <div
+            style={{ display: "flex", gap: "20px", marginLeft: "20px" }}
+            className="hide-mobile"
+          >
+            <SkeletonBase style={{ width: "60px", height: "15px" }} />
+            <SkeletonBase style={{ width: "80px", height: "15px" }} />
+            <SkeletonBase style={{ width: "70px", height: "15px" }} />
+          </div>
+        ) : (
+          <Links $isMenuOpen={isMenuOpen}>
+            {[
+              { name: "Shop", path: "/" },
+              { name: "Plant Care", path: "/care" },
+              { name: "Workshops", path: "/workshops" },
+              { name: "Blogs", path: "/blogs" },
+            ].map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.path}
+                  className={pathname === link.path ? "active" : ""}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </Links>
+        )}
       </Left>
 
       <Right>
-        <div className="cart-container">
-          <button
-            id="cart-button"
-            className="icon-btn"
-            onClick={handleCartToggle}
-          >
-            🛒
-            {totalItems > 0 && <span className="badge">{totalItems}</span>}
-          </button>
+        {isLoading ? (
+          <>
+            <SkeletonBase
+              style={{ width: "30px", height: "30px", borderRadius: "50%" }}
+            />
+            <SkeletonBase
+              style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+            />
+          </>
+        ) : (
+          <>
+            <div className="cart-container" style={{ position: "relative" }}>
+              <button
+                id="cart-button"
+                className="icon-btn"
+                onClick={handleCartToggle}
+              >
+                🛒
+                {totalItems > 0 && <span className="badge">{totalItems}</span>}
+              </button>
+              {isCartOpen && (
+                <CartDropdown onClose={() => setIsCartOpen(false)} />
+              )}
+            </div>
 
-          {isCartOpen && <CartDropdown onClose={() => setIsCartOpen(false)} />}
-        </div>
-
-        <div className="profile-avatar">
-          <Image src="/profile.png" alt="User" width={32} height={32} />
-        </div>
+            <div className="profile-avatar">
+              <Image src="/profile.png" alt="User" width={32} height={32} />
+            </div>
+          </>
+        )}
       </Right>
     </Nav>
   );

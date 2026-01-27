@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import NavbarSkeleton from "./NavbarSkeleton";
 
 const shimmer = keyframes`
   0% { background-position: -468px 0; }
@@ -49,31 +50,34 @@ const CardSkeleton = styled(SkeletonBase)`
 const DetailsSkeleton = styled(SkeletonBase)`
   height: 100%;
   border-radius: 8px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default function ShopSkeleton() {
   return (
-    <SkeletonWrapper>
-      {/* السايد بار الوهمي */}
-      <SidebarSkeleton className="hide-mobile" />
+    <>
+      <NavbarSkeleton />
+      <SkeletonWrapper>
+        <SidebarSkeleton className="hide-mobile" />
 
-      {/* منطقة المنتجات الوهمية */}
-      <MainSkeleton>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: "15px",
-          }}
-        >
-          {[...Array(6)].map((_, i) => (
-            <CardSkeleton key={i} />
-          ))}
-        </div>
-      </MainSkeleton>
+        <MainSkeleton>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+              gap: "15px",
+            }}
+          >
+            {[...Array(6)].map((_, i) => (
+              <CardSkeleton key={i} />
+            ))}
+          </div>
+        </MainSkeleton>
 
-      {/* تفاصيل المنتج الوهمية */}
-      <DetailsSkeleton className="hide-mobile" />
-    </SkeletonWrapper>
+        <DetailsSkeleton className="hide-mobile" />
+      </SkeletonWrapper>
+    </>
   );
 }

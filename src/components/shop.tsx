@@ -10,8 +10,10 @@ import plantsData from "@/data/plants.json";
 import Pagination from "@/components/Products/Pagination";
 import ShopTopBar from "./Products/ShopTopBar";
 import ShopSkeleton from "./ShopSkeleton";
-
-const Wrapper = styled.div`
+interface WrapperProps {
+  $hasSelectedProduct: boolean;
+}
+const Wrapper = styled.div<WrapperProps>`
   height: calc(100vh - 70px);
   background: #f7f8fa;
   display: grid;
@@ -43,6 +45,10 @@ const Wrapper = styled.div`
     background: #fff;
     overflow-y: auto;
     border-left: 1px solid #eee;
+    @media (max-width: 768px) {
+      display: ${({ $hasSelectedProduct }) =>
+        $hasSelectedProduct ? "block" : "none"};
+    }
   }
 
   @media (max-width: 1200px) {
@@ -175,7 +181,7 @@ export default function ShopPage() {
     return <ShopSkeleton />;
   }
   return (
-    <Wrapper>
+    <Wrapper $hasSelectedProduct={!!selectedProduct}>
       <div className="left-column">
         <Sidebar
           $isOpen={isSidebarOpen}
