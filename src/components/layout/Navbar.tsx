@@ -161,14 +161,47 @@ const Right = styled.div`
   }
 `;
 
-const MenuBtn = styled.button`
+const MenuBtn = styled.button<{ $isOpen: boolean }>`
   display: none;
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 20px;
+  position: relative;
+  margin-right: 15px;
+
   @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  span {
     display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #2f7d4f; /* لون البراند بتاعك */
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: left center;
+  }
+
+  span:nth-child(1) {
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "rotate(45deg) translate(2px, -2px)" : "rotate(0)"};
+  }
+
+  span:nth-child(2) {
+    opacity: ${({ $isOpen }) => ($isOpen ? "0" : "1")};
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "translateX(-10px)" : "translateX(0)"};
+  }
+
+  span:nth-child(3) {
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "rotate(-45deg) translate(2px, 2px)" : "rotate(0)"};
   }
 `;
 
@@ -194,8 +227,13 @@ export default function Navbar() {
   return (
     <Nav>
       <Left>
-        <MenuBtn onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? "✕" : "☰"}
+        <MenuBtn
+          $isOpen={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span />
+          <span />
+          <span />
         </MenuBtn>
 
         <Link href="/" className="logo-container">
