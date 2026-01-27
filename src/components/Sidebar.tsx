@@ -162,6 +162,25 @@ const Wrapper = styled.div<{ $isOpen: boolean }>`
       overflow-y: auto;
     }
   }
+  .reset-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    color: #666;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.2s;
+
+    &:hover {
+      background: #f9fafb;
+      color: #ef4444;
+      border-color: #fca5a5;
+    }
+  }
 `;
 
 export default function Sidebar({
@@ -191,7 +210,17 @@ export default function Sidebar({
     setPriceRange({ min, max });
     if (window.innerWidth <= 768) onClose();
   };
+  const handleResetPrice = () => {
+    const minInput = document.getElementById("sidebar-min") as HTMLInputElement;
+    const maxInput = document.getElementById("sidebar-max") as HTMLInputElement;
 
+    if (minInput) minInput.value = "";
+    if (maxInput) maxInput.value = "";
+
+    setPriceRange({ min: 0, max: 10000 });
+
+    if (window.innerWidth <= 768) onClose();
+  };
   return (
     <Wrapper $isOpen={$isOpen}>
       <div className="overlay" onClick={onClose} />
@@ -236,6 +265,9 @@ export default function Sidebar({
           </div>
           <button className="apply-btn" onClick={handlePriceSet}>
             Set price
+          </button>
+          <button className="reset-btn" onClick={handleResetPrice}>
+            Reset Prices
           </button>
         </div>
         <BorderBottom />

@@ -1,13 +1,14 @@
 // pages/shop.tsx
 import Sidebar from "../components/Sidebar";
 import styled from "styled-components";
-import SearchBar from "@/components/Products/SearchBar";
 import { useSearchParams } from "next/navigation";
 import ProductSection from "@/components/Products/ProductSection";
 import { useState, useEffect } from "react";
 import { Product } from "@/types/product";
 import ProductDetails from "@/components/Products/ProductDetails";
 import plantsData from "@/data/plants.json";
+import Pagination from "@/components/Products/Pagination";
+import ShopTopBar from "./Products/ShopTopBar";
 
 const Wrapper = styled.div`
   height: calc(100vh - 70px);
@@ -77,58 +78,6 @@ const Content = styled.div`
 
   @media (max-width: 768px) {
     padding: 15px;
-  }
-`;
-
-const Pagination = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 24px;
-
-  button {
-    min-width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    background: white;
-    cursor: pointer;
-    font-size: 14px;
-    padding: 0 12px;
-    transition: 0.2s;
-
-    &:hover {
-      background: #f3f4f6;
-    }
-
-    &.active {
-      background: #2f7d4f;
-      color: white;
-      border-color: #2f7d4f;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-`;
-
-const FilterButton = styled.button`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: #2f7d4f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-bottom: 10px;
   }
 `;
 
@@ -207,12 +156,16 @@ export default function ShopPage() {
     return 0;
   });
 
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const filteredCount = filteredProducts.length;
+  const totalPages = Math.ceil(filteredCount / ITEMS_PER_PAGE);
+
+  const safePage = currentPage > totalPages ? 1 : currentPage;
+  const startIndex = (safePage - 1) * ITEMS_PER_PAGE;
+
   const paginatedProducts = sortedProducts.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
-  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
   return (
     <Wrapper>
@@ -228,13 +181,7 @@ export default function ShopPage() {
 
       <div className="middle-column" id="main-content">
         <Content>
-          <div className="top-bar">
-            <FilterButton onClick={() => setIsSidebarOpen(true)}>
-              🔍 Filter
-            </FilterButton>
-            <SearchBar />
-          </div>
-
+          <ShopTopBar onOpenFilter={() => setIsSidebarOpen(true)} />
           {paginatedProducts.length > 0 ? (
             <>
               <ProductSection
@@ -244,29 +191,11 @@ export default function ShopPage() {
                 sortBy={sortBy}
                 setSortBy={setSortBy}
               />
-              <Pagination>
-                <button
-                  disabled={currentPage === 1}
-                  onClick={() => setCurrentPage((p) => p - 1)}
-                >
-                  Prev
-                </button>
-                {Array.from({ length: totalPages }).map((_, i) => (
-                  <button
-                    key={i + 1}
-                    className={i + 1 === currentPage ? "active" : ""}
-                    onClick={() => setCurrentPage(i + 1)}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-                <button
-                  disabled={currentPage === totalPages}
-                  onClick={() => setCurrentPage((p) => p + 1)}
-                >
-                  Next
-                </button>
-              </Pagination>
+              <Pagination
+                currentPage={safePage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
             </>
           ) : (
             <div className="no-results">

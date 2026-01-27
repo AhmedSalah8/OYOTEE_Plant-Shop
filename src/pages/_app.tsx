@@ -13,7 +13,7 @@ const AppWrapper = styled.div`
 
 const PageContent = styled.main`
   flex: 1;
-  background: #f7f8fa;
+  /* background: #f7f8fa; */
 `;
 
 export default function MyApp({ Component, pageProps }: AppProps) {
