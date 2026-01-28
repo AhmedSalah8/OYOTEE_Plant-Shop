@@ -182,7 +182,7 @@ const MenuBtn = styled.button<{ $isOpen: boolean }>`
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #2f7d4f; /* لون البراند بتاعك */
+    background-color: #2f7d4f;
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
     transform-origin: left center;

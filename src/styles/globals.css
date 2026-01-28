@@ -424,8 +424,6 @@ a {
   color: #fff;
 }
 
-/* ✅ Responsive */
-
 @media (max-width: 768px) {
   .plant-card .image {
     height: 170px;

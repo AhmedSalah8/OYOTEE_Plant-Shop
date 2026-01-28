@@ -9,7 +9,7 @@ import ProductDetails from "@/components/Products/ProductDetails";
 import plantsData from "@/data/plants.json";
 import Pagination from "@/components/Products/Pagination";
 import ShopTopBar from "./Products/ShopTopBar";
-import ShopSkeleton from "./ShopSkeleton";
+import ShopSkeleton from "../components/skeleton/ShopSkeleton";
 interface WrapperProps {
   $hasSelectedProduct: boolean;
 }
@@ -56,7 +56,7 @@ const Wrapper = styled.div<WrapperProps>`
     grid-template-areas: "left middle right";
   }
   @media (max-width: 900px) {
-    grid-template-columns: minmax(100px, 150px) 1fr;
+    grid-template-columns: minmax(150px, 200px) 1fr;
     grid-template-areas: "left middle";
   }
   @media (max-width: 768px) {

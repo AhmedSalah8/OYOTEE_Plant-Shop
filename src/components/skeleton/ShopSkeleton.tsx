@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import NavbarSkeleton from "./NavbarSkeleton";
+import NavbarSkeleton from "../skeleton/NavbarSkeleton";
 
 const shimmer = keyframes`
   0% { background-position: -468px 0; }
