@@ -31,7 +31,7 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
   border-left: 1px solid #eee;
 
   @media (min-width: 901px) {
-    animation: slideIn 0.3s ease;
+    transition: 0.2s ease;
   }
 
   @keyframes slideIn {
@@ -156,7 +156,7 @@ const Wrapper = styled.div<{ $hasProduct: boolean }>`
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
     transform: ${({ $hasProduct }) =>
       $hasProduct ? "translateY(0)" : "translateY(100%)"};
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow-y: auto;
     padding-bottom: 40px;
     .image-container img {
